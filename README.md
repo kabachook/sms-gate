@@ -1,5 +1,7 @@
 # sms-gate
 
+![Preview](docs/preview.png)
+
 ## Quick start
 
 ### env
