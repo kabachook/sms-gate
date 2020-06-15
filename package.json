@@ -9,8 +9,5 @@
     "express": "^4.17.1",
     "telegraf": "^3.38.0",
     "twilio": "^3.46.0"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.6"
   }
 }
