@@ -1,11 +1,12 @@
 const http = require("http");
-const qs = require("querystring");
 
-const EXAMPLE = qs.stringify({
+const params = new URLSearchParams({
   From: "+10001236565",
   To: "+11112345678",
   Body: "Test",
 });
+
+const qs = params.toString();
 
 const req = http.request(
   {
@@ -15,7 +16,7 @@ const req = http.request(
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      "Content-Length": Buffer.byteLength(EXAMPLE),
+      "Content-Length": Buffer.byteLength(qs),
     },
   },
   (res) => {
@@ -32,5 +33,5 @@ req.on("error", (e) => {
   console.error(`problem with request: ${e.message}`);
 });
 
-req.write(EXAMPLE);
+req.write(qs);
 req.end();

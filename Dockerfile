@@ -2,9 +2,9 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.jsonpnpm-lock.yaml ./
 
-RUN yarn install
+RUN pnpm i
 
 COPY . .
 

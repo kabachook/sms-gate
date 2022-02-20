@@ -50,6 +50,13 @@ const validate = Twilio.webhook(config.twilio.authToken, {
 const tg = new Telegraf.Telegram(config.telegram.botToken);
 
 const app = express();
+app.use(
+  bodyParser.json({
+    verify: (req, res, buf) => {
+      req.rawBody = buf;
+    },
+  })
+);
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post("/sms", validate, async (req, res, next) => {
