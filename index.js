@@ -77,7 +77,10 @@ app.post("/sms", validate, async (req, res, next) => {
 
   const response = new Twilio.twiml.MessagingResponse();
 
-  return res.status(200).send(response.toString());
+  return res
+    .status(200)
+    .set("Content-Type", "text/xml")
+    .send(response.toString());
 });
 
 app.get("/numbers", async (req, res, next) => {

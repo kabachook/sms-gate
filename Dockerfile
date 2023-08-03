@@ -2,7 +2,7 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package.jsonpnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml ./
 
 RUN pnpm i
 
